@@ -1,4 +1,4 @@
-FROM bioconductor_docker:devel
+FROM bioconductor/bioconductor_docker:devel
 
 # Install meme-suite dependencies
 RUN apt-get update && apt-get install -y \
@@ -8,8 +8,9 @@ RUN apt-get update && apt-get install -y \
     libtool  \
     libhtml-template-compiled-perl \
     libxml-opml-simplegen-perl  \
-    libxml-libxml-debugging-perl \
-    openssh-server && \
+    libxml-libxml-debugging-perl && \
+# don't think this is needed
+#    openssh-server && \
 # Perl dependencies
   PERL_MM_USE_DEFAULT=1 \
   perl -MCPAN -e 'install($_) for qw( \
