@@ -1,0 +1,14 @@
+libopenmpi-dev 
+openmpi-bin 
+ghostscript 
+libgs-dev 
+libgd-dev 
+libexpat1-dev 
+zlib1g-dev 
+libxml2-dev 
+autoconf automake libtool 
+libhtml-template-compiled-perl 
+libxml-opml-simplegen-perl 
+libxml-libxml-debugging-perl 
+sudo 
+openssh-server
