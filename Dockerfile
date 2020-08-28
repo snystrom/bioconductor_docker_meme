@@ -27,11 +27,14 @@ RUN apt-get update && apt-get install -y \
     XML::Compile \
     XML::Compile::SOAP11 \
     XML::Compile::WSDL11 \
-    XML::Compile::Transport::SOAPHTTP && \
+    #XML::Compile::Transport::SOAPHTTP && \
+    XML::Compile::Transport::SOAPHTTP
 # download & install meme
-  mkdir -p /opt/meme && \
-  curl -SL http://meme-suite.org/meme-software/5.1.1/meme-5.1.1.tar.gz && \
+#  mkdir -p /opt/meme && \
+RUN  mkdir -p /opt/meme && \
+  curl -SL http://meme-suite.org/meme-software/5.1.1/meme-5.1.1.tar.gz > meme-5.1.1.tar.gz && \
   tar -zxvf meme-5.1.1.tar.gz -C /opt/ && \
+	rm meme-5.1.1.tar.gz && \
   cd /opt/meme-5.1.1/ && \
 	./configure --prefix=/opt/meme --enable-build-libxml2 --enable-build-libxslt  --with-url=http://meme-suite.org --with-python=/usr/bin/python3 && \ 
   make && \
