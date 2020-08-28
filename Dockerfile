@@ -10,12 +10,11 @@ RUN apt-get update && apt-get install -y \
     libhtml-template-compiled-perl \
     libxml-opml-simplegen-perl  \
     libxml-libxml-debugging-perl && \
+# TODO: add back openssh-server if needed
 # don't think this is needed
 #    openssh-server && \
 # Perl dependencies
 	cpanm \
-  #PERL_MM_USE_DEFAULT=1 \
-  #perl -MCPAN -e 'install($_) for qw( \
     Log::Log4perl \
     Math::CDF \
     CGI \
@@ -29,7 +28,6 @@ RUN apt-get update && apt-get install -y \
     XML::Compile::SOAP11 \
     XML::Compile::WSDL11 \
     XML::Compile::Transport::SOAPHTTP && \
-#    XML::Compile::Transport::SOAPHTTP )' && \
 # download & install meme
   mkdir -p /opt/meme && \
   curl -SL http://meme-suite.org/meme-software/5.1.1/meme-5.1.1.tar.gz && \
