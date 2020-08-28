@@ -42,6 +42,7 @@ RUN  mkdir -p /opt/meme && \
   cp /opt/meme-5.1.1/scripts/*.py /opt/meme/lib/meme-5.1.1/python/ && \
 # expose MEME_BIN variable during interactive sessions
   echo "MEME_BIN=/opt/meme/bin/" >> /home/rstudio.Renviron && \
+	mkdir /home/.R/ && \
 # expose MEME_BIN variable during R CMD CHECK
   echo "MEME_BIN=/opt/meme/bin/" >> /home/.R/check.Renviron 
    
