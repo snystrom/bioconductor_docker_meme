@@ -1,5 +1,7 @@
 # Bioconductor Docker with MEME Suite
 
+[![https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/4716)
+
 Builds the bioconductor docker container with the [meme-suite](meme-suite.org) v5.1.1, using python3.7.1
 
 **NOTE:** Currently only builds from the `bioconductor_docker:devel` container. In the future, I will support stable releases.
