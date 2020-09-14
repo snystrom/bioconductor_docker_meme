@@ -43,5 +43,5 @@ RUN apt-get update && apt-get install -y \
   echo "MEME_BIN=/opt/meme/bin/" >> /home/rstudio/.Renviron && \
 	mkdir /home/.R/ && \
 # expose MEME_BIN variable during R CMD CHECK
-  echo "MEME_BIN=/opt/meme/bin/" >> /home/.R/check.Renviron 
+  echo "MEME_BIN=/opt/meme/bin/" >> /home/rstudio/.R/check.Renviron 
    
