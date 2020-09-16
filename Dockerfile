@@ -47,3 +47,5 @@ RUN apt-get update && apt-get install -y \
 # cleanup
 	rm -rf /opt/meme-5.1.1/
    
+ENV PATH="/opt/meme/bin:${PATH}"
+ENV MEME_BIN="/opt/meme/bin"
