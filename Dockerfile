@@ -1,4 +1,5 @@
 FROM bioconductor/bioconductor_docker:devel
+ENV MEME_VERSION 5.1.1
 
 # Install meme-suite dependencies
 RUN apt-get update && apt-get install -y \
@@ -31,21 +32,22 @@ RUN apt-get update && apt-get install -y \
 # download & install meme
   mkdir -p /opt/meme && \
 	mkdir -p /opt/meme && \
-  curl -SL http://meme-suite.org/meme-software/5.1.1/meme-5.1.1.tar.gz > meme-5.1.1.tar.gz && \
-  tar -zxvf meme-5.1.1.tar.gz -C /opt/ && \
-	rm meme-5.1.1.tar.gz && \
-  cd /opt/meme-5.1.1/ && \
+  curl -SL http://meme-suite.org/meme-software/${MEME_VERSION}/meme-${MEME_VERSION}.tar.gz > meme-${MEME_VERSION}.tar.gz && \
+  tar -zxvf meme-${MEME_VERSION}.tar.gz -C /opt/ && \
+	rm meme-${MEME_VERSION}.tar.gz && \
+  cd /opt/meme-${MEME_VERSION}/ && \
 	./configure --prefix=/opt/meme --enable-build-libxml2 --enable-build-libxslt  --with-url=http://meme-suite.org --with-python=/usr/bin/python3 && \ 
   make && \
   make install && \
-  cp /opt/meme-5.1.1/scripts/*.py /opt/meme/lib/meme-5.1.1/python/ && \
+  cp /opt/meme-${MEME_VERSION}/scripts/*.py /opt/meme/lib/meme-${MEME_VERSION}/python/ && \
 # expose MEME_BIN variable during interactive sessions
   echo "MEME_BIN=/opt/meme/bin/" >> /home/rstudio/.Renviron && \
 	mkdir /home/rstudio/.R/ && \
 # expose MEME_BIN variable during R CMD CHECK
   echo "MEME_BIN=/opt/meme/bin/" >> /home/rstudio/.R/check.Renviron  && \
 # cleanup
-	rm -rf /opt/meme-5.1.1/
-   
+	rm -rf /opt/meme-${MEME_VERSION}/
+
+ENV MEME_VERSION=   
 ENV PATH="/opt/meme/bin:${PATH}"
 ENV MEME_BIN="/opt/meme/bin"
