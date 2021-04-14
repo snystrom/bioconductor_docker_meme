@@ -1,5 +1,5 @@
 FROM bioconductor/bioconductor_docker:devel
-ENV MEME_VERSION 5.1.1
+ENV MEME_VERSION 5.3.3
 
 # Install meme-suite dependencies
 RUN apt-get update && apt-get install -y \
